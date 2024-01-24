@@ -8,6 +8,34 @@
     <title>Snack 2</title>
 </head>
 <body>
+
+<?php
+
+$nome = isset($_GET['nome']);
+$email = isset($_GET['email']);
+$età = isset($_GET['età']);
+
+    // Verifica delle condizioni
+
+    // strlen verifica la lunghezza
+    $condizione_nome = strlen($nome) > 3;
+    // FILTER_VALIDATE_EMAIL verifica che sia un email anche se abbiamo aggiunto il campo input email
+    $condizione_email = filter_var($email, FILTER_VALIDATE_EMAIL);
+    // in_numeric verifica che sia un numero anche se con il campo input abbiamo segnato number
+    $condizione_età = is_numeric($età);
+
+    // Stampa il risultato
+    if ($condizione_nome && $condizione_email && $condizione_età) {
+        $risultato = "Accesso riuscito";
+        echo $risultato;
+    } else if($nome == "" || $email == "" || $età == ""){
+        echo "";
+    } else {
+        $risultato = "Accesso negato";
+        echo $risultato;
+    }
+?>
+
 <div class="container">
         <div class="row">
             <form method="GET" >
@@ -31,7 +59,9 @@
                 <div class="col-12 text-center">
                     <button type="submit" >invia</button>
                 </div>
-
             </form>                    
+        </div>
+</div>
+
 </body>
 </html>
