@@ -14,7 +14,10 @@ $partite = [
     "punti_casa" => 55,
     "punti_ospite" => 60,
 ];
-var_dump($partite)
+var_dump($partite);
+// Stampare a schermo le partite
+
+echo $partite['squadra_casa'] . " - " . $partite['squadra_ospite'] . " | " . $partite['punti_casa'] . "-" . $partite['punti_ospite'] . "<br>";
 
 ?>
 
